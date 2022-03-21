@@ -21,7 +21,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .anyRequest().authenticated().and()
                 .x509()
-                .subjectPrincipalRegex("CN=(.*?)(?:,|$)")
+                //.subjectPrincipalRegex("CN=(.*?)(?:,|$)")
+                .subjectPrincipalRegex("(.*)")
                 .userDetailsService(userDetailService);
         // SET in varna točka for not establishing session
         //.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER);
